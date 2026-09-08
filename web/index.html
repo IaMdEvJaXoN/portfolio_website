@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Base href for Flutter routing -->
+  <base href="$FLUTTER_BASE_HREF">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+
+  <!-- Primary SEO Meta Tags -->
+  <title>IamJaxon | Engineering Portfolio</title>
+  <meta name="title" content="IamJaxon | Engineering Portfolio">
+  <meta name="description"
+    content="Bridging high-performance Flutter architecture with low-level embedded C++. Explore custom PCB designs, IoT systems, and cross-platform codebases by IamJaxon.">
+  <meta name="keywords"
+    content="Flutter, Dart, C++, Embedded Systems, KiCad, PCB Design, Riverpod, Clean Architecture, IoT, Electrical Engineering">
+  <meta name="author" content="Jackson (IamJaxon)">
+
+  <!-- Open Graph / LinkedIn / WhatsApp Social Previews -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://portfolio-website-2c89a.web.app">
+  <meta property="og:title" content="IamJaxon | Engineering Portfolio">
+  <meta property="og:description"
+    content="Architecting in software. Engineering in silicon. Explore high-performance mobile apps and embedded hardware.">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="IamJaxon Portfolio">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png" />
+
+  <!-- PRE-LOADER STYLES (VANTABLACK + HARDWARE TRACE) -->
+  <style>
+    /* 1. Force the background to Vantablack immediately */
+    body {
+      background-color: #000000;
+      margin: 0;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-family: 'Courier New', Courier, monospace;
+    }
+
+    /* 2. Center everything inside the loading wrapper */
+    #loading-indicator {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* 3. The Terminal Text */
+    .boot-text {
+      color: #555555;
+      font-size: 14px;
+      letter-spacing: 2px;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    .cursor {
+      color: #00e5ff;
+      animation: blink 1s step-end infinite;
+    }
+
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0;
+      }
+    }
+
+    /* 4. The Hardware Trace */
+    .trace-container {
+      width: 240px;
+      height: 1px;
+      background-color: #111111;
+    }
+
+    .trace-bar {
+      height: 100%;
+      background-color: #00e5ff;
+      width: 0%;
+      animation: traceLoad 2s cubic-bezier(0.19, 1, 0.22, 1) infinite;
+    }
+
+    @keyframes traceLoad {
+      0% {
+        width: 0%;
+        margin-left: 0;
+      }
+
+      50% {
+        width: 100%;
+        margin-left: 0;
+      }
+
+      100% {
+        width: 0%;
+        margin-left: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- THE LOADING UI -->
+  <div id="loading-indicator">
+    <div class="boot-text">
+      > Over-engineering a simple Firestore read... (I swear it worked on localhost)<span class="cursor">_</span>
+    </div>
+    <div class="trace-container">
+      <div class="trace-bar"></div>
+    </div>
+  </div>
+
+  <!--
+    FLUTTER BOOTSTRAP
+    Once CanvasKit initializes, it will paint the app directly over this HTML structure.
+  -->
+  <script src="flutter_bootstrap.js" async></script>
+
+</body>
+
+</html>

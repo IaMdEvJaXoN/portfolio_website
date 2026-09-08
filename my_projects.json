@@ -1,0 +1,94 @@
+{
+    "profile": {
+        "main": {
+            "name": "IamJaxon",
+            "title": "Electrical & Electronics Engineer | Cross-Platform & Embedded Developer",
+            "mantra": "Architecting in Software. Engineering in Silicon.",
+            "avatar_url": "",
+            "email": "you@example.com",
+            "linkedin_url": "https://linkedin.com/in/example",
+            "whatsapp_url": "https://wa.me/000000000"
+        }
+    },
+    "domains": {
+        "mobile-architecture": {
+            "title": "Cross-Platform Development",
+            "description": "Clean Architecture implementations using Flutter and Dart.",
+            "carousel_image_url": "",
+            "sort_order": 1
+        },
+        "circuit-design": {
+            "title": "Hardware & Circuit Design",
+            "description": "Analog topologies, PCB layout, and embedded firmware.",
+            "carousel_image_url": "",
+            "sort_order": 2
+        }
+    },
+    "projects": {
+        "lexitick-dictionary": {
+            "domain_id": "mobile-architecture",
+            "title": "LexiTick",
+            "short_summary": "An API-driven dictionary application utilizing Riverpod.",
+            "thumbnail_url": "",
+            "tech_stack": [
+                "Flutter",
+                "Dart",
+                "REST API",
+                "Clean Architecture"
+            ],
+            "repository_url": "https://github.com/IamJaxon/lexitick",
+            "demo_url": "",
+            "case_study_markdown": "## Architecture Overview\nLexiTick implements a strict separation of concerns...\n\n> Key principle as a blockquote."
+        },
+        "variable-power-supply": {
+            "domain_id": "circuit-design",
+            "title": "1-12V Regulated Power Supply",
+            "short_summary": "A variable linear power supply prototyping a Darlington transistor pair.",
+            "thumbnail_url": "",
+            "tech_stack": [
+                "KiCad",
+                "Breadboard Prototyping",
+                "Component Sizing"
+            ],
+            "repository_url": "",
+            "demo_url": "https://wokwi.com/projects/example",
+            "case_study_markdown": "## Thermal Considerations\nDuring load testing at 1A, the Darlington pair dissipation required..."
+        }
+    },
+    "skills": {
+        "main": {
+            "categories": [
+                {
+                    "name": "Hardware",
+                    "skills": [
+                        "KiCad",
+                        "ESP32",
+                        "Arduino"
+                    ]
+                },
+                {
+                    "name": "Software",
+                    "skills": [
+                        "C++",
+                        "Python",
+                        "Linux Fedora",
+                        "Dart",
+                        "Flutter"
+                    ]
+                },
+                {
+                    "name": "Analytical",
+                    "skills": [
+                        "Vector Calculus",
+                        "Electromagnetic Fields"
+                    ]
+                }
+            ]
+        }
+    },
+    "philosophy": {
+        "main": {
+            "content_markdown": "## Engineering Philosophy\n\n> Precision in the schematic is precision in the silicon.\n\nContent here is markdown — edit directly in Firestore or via JSON, no redeploy needed."
+        }
+    }
+}

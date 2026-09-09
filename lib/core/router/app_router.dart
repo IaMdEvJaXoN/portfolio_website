@@ -18,14 +18,14 @@ final _rootNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'root');
 final appRouterProvider = Provider<GoRouter>((ref) {
   return GoRouter(
     navigatorKey: _rootNavigatorKey,
-    initialLocation: '/hero',
+    initialLocation: '/home',
     routes: [
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) => AppShell(navigationShell: navigationShell),
         branches: [
           StatefulShellBranch(
             routes: [
-              GoRoute(path: '/hero', builder: (c, s) => const HeroScreen()),
+              GoRoute(path: '/home', builder: (c, s) => const HeroScreen()),
             ],
           ),
           StatefulShellBranch(

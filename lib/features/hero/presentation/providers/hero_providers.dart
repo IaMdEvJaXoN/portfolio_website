@@ -18,7 +18,7 @@ final _getHeroProfileProvider = Provider((ref) {
 });
 
 /// Cached for the provider's lifetime — StatefulShellRoute keeps the
-/// Hero branch alive, so switching tabs and back never refetches.
+/// Home branch alive, so switching tabs and back never refetches.
 final heroProfileProvider = FutureProvider<HeroProfileEntity>((ref) {
   return ref.watch(_getHeroProfileProvider).call();
 });

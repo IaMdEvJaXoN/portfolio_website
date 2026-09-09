@@ -7,6 +7,7 @@ class AppTheme {
 
   //Single radius constant enforces "tight, sharp, functional" geometry everywhere.
   static const double radius = 3.0;
+  static const double cardRadius = 16.0;
   static const Duration motionDuration = Duration(milliseconds: 300);
   static const Curve motionCurve = Curves.fastOutSlowIn;
 

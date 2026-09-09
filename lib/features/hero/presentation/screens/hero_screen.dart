@@ -143,7 +143,7 @@ class _LeftColumnState extends ConsumerState<_LeftColumn> {
         ),
         const SizedBox(height: 16),
         DropInText(
-          text: '> ${widget.profile.mantra}',
+          text: '- ${widget.profile.mantra}',
           style: AppTypography.mono,
           startDelay: mantraStart,
         ),

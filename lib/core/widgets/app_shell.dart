@@ -14,7 +14,7 @@ class AppShell extends StatefulWidget {
 }
 
 class _AppShellState extends State<AppShell> {
-  static const _tabs = ['Hero', 'Projects', 'Skills', 'Philosophy'];
+  static const _tabs = ['Home', 'Projects', 'Skills', 'Philosophy'];
 
   late int _previousIndex = widget.navigationShell.currentIndex;
 

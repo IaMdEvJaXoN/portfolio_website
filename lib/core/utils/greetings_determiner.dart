@@ -15,14 +15,12 @@ class GreetingsDeterminer {
 
   static const _afternoon = [
     'Midday checkpoint.No bugs found yet.',
-    'Good afternoon — steady state reached.',
     'Peak load hours. Good afternoon.',
     'Halfway through the duty cycle.',
-    'Afternoon. Still within tolerance.',
     'Operating comfortably within the Nyquist limit today.',
     "Afternoon — Schrödinger's coffee: both full and empty.",
-    'Still coherent. Barely. Good afternoon.',
-    'Afternoon. No observed collapse in productivity yet.',
+    'Still coherent.Barely. Good afternoon.',
+    'No observed collapse in productivity yet.',
   ];
 
   static const _evening = [

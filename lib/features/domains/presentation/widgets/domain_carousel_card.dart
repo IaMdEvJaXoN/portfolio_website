@@ -3,7 +3,7 @@ import 'package:my_portfolio_web_app/features/domains/domain/entities/domain_ent
 import 'package:my_portfolio_web_app/core/theme/app_colors.dart';
 import 'package:my_portfolio_web_app/core/theme/app_theme.dart';
 
-class DomainCarouselCard extends StatelessWidget {
+class DomainCarouselCard extends StatefulWidget {
   const DomainCarouselCard({
     super.key,
     required this.domain,
@@ -29,74 +29,102 @@ class DomainCarouselCard extends StatelessWidget {
   static const double _bgOverscale = 1.25;
 
   @override
+  State<DomainCarouselCard> createState() => _DomainCarouselCardState();
+}
+
+class _DomainCarouselCardState extends State<DomainCarouselCard> {
+  bool _hovered = false;
+
+  @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(AppTheme.radius),
-        child: Container(
+    final isCurrent = widget.parallax.abs() < 0.05;
+    final isHighlighted = _hovered || isCurrent;
+
+    return MouseRegion(
+      cursor: SystemMouseCursors.click,
+      onEnter: (_) => setState(() => _hovered = true),
+      onExit: (_) => setState(() => _hovered = false),
+      child: GestureDetector(
+        onTap: widget.onTap,
+        child: AnimatedContainer(
+          duration: AppTheme.motionDuration,
+          curve: AppTheme.motionCurve,
           decoration: BoxDecoration(
             color: AppColors.surface,
-            border: Border.all(color: AppColors.border),
+            borderRadius: BorderRadius.circular(AppTheme.cardRadius),
+            border: Border.all(
+              color: _hovered
+                  ? AppColors.accent
+                  : isCurrent
+                  ? AppColors.accent.withValues(alpha: 0.75)
+                  : AppColors.border,
+              width: isHighlighted ? 2 : 1,
+            ),
           ),
-          child: Stack(
-            fit: StackFit.expand,
-            children: [
-              if (domain.carouselImageUrl.isNotEmpty)
-                //Translate opposite to scroll direction: as the user
-                //drags left (page increasing, parallax -> +1 for a card
-                //moving off to the right of center), the background
-                //shifts the other way, giving the "background pans
-                //against the scroll" effect the spec asks for.
-                Transform.translate(
-                  offset: Offset(-parallax * _panExtentPx, 0),
-                  child: Transform.scale(
-                    scale: _bgOverscale,
-                    child: Image.network(
-                      domain.carouselImageUrl,
-                      fit: BoxFit.cover,
-                      errorBuilder: (context, error, stack) =>
-                          const SizedBox.shrink(),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(AppTheme.cardRadius),
+            child: Stack(
+              fit: StackFit.expand,
+              children: [
+                if (widget.domain.carouselImageUrl.isNotEmpty)
+                  //Translate opposite to scroll direction: as the user
+                  //drags left (page increasing, parallax -> +1 for a card
+                  //moving off to the right of center), the background
+                  //shifts the other way, giving the "background pans
+                  //against the scroll" effect the spec asks for.
+                  Transform.translate(
+                    offset: Offset(
+                      -widget.parallax * DomainCarouselCard._panExtentPx,
+                      0,
+                    ),
+                    child: Transform.scale(
+                      scale: DomainCarouselCard._bgOverscale,
+                      child: Image.network(
+                        widget.domain.carouselImageUrl,
+                        fit: BoxFit.cover,
+                        errorBuilder: (context, error, stack) =>
+                            const SizedBox.shrink(),
+                      ),
+                    ),
+                  ),
+                // Scrim so the title/description stay legible over any image.
+                DecoratedBox(
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [
+                        Colors.transparent,
+                        AppColors.background.withValues(alpha: 0.85),
+                      ],
+                      stops: const [0.3, 1.0],
                     ),
                   ),
                 ),
-              // Scrim so the title/description stay legible over any image.
-              DecoratedBox(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [
-                      Colors.transparent,
-                      AppColors.background.withValues(alpha: 0.85),
-                    ],
-                    stops: const [0.3, 1.0],
+                Padding(
+                  padding: const EdgeInsets.all(24),
+                  child: Align(
+                    alignment: Alignment.bottomLeft,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          widget.domain.title,
+                          style: Theme.of(context).textTheme.headlineMedium
+                              ?.copyWith(color: AppColors.textPrimary),
+                        ),
+                        const SizedBox(height: 8),
+                        Text(
+                          widget.domain.description,
+                          style: Theme.of(context).textTheme.bodyMedium,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(24),
-                child: Align(
-                  alignment: Alignment.bottomLeft,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(
-                        domain.title,
-                        style: Theme.of(context).textTheme.headlineMedium
-                            ?.copyWith(color: AppColors.textPrimary),
-                      ),
-                      const SizedBox(height: 8),
-                      Text(
-                        domain.description,
-                        style: Theme.of(context).textTheme.bodyMedium,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

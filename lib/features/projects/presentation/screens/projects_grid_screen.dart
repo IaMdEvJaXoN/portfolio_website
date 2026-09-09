@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:my_portfolio_web_app/core/theme/app_colors.dart';
 import 'package:my_portfolio_web_app/core/widgets/constrained_width.dart';
-import 'package:my_portfolio_web_app/core/widgets/outlined_action_button.dart';
+//import 'package:my_portfolio_web_app/core/widgets/outlined_action_button.dart';
 import 'package:my_portfolio_web_app/features/domains/presentation/providers/domains_providers.dart';
 import 'package:my_portfolio_web_app/features/projects/presentation/providers/projects_providers.dart';
 import 'package:my_portfolio_web_app/features/projects/presentation/widgets/project_card.dart';
@@ -28,11 +28,11 @@ class ProjectsGridScreen extends ConsumerWidget {
               padding: const EdgeInsets.fromLTRB(24, 24, 24, 8),
               child: Row(
                 children: [
-                  OutlinedActionButton(
-                    label: 'Domains',
-                    icon: Icons.arrow_back,
-                    onTap: () => context.go('/projects'),
-                  ),
+                  // OutlinedActionButton(
+                  //   label: 'Domains',
+                  //   icon: Icons.arrow_back,
+                  //   onTap: () => context.go('/projects'),
+                  // ),
                   const SizedBox(width: 16),
                   domainsAsync.when(
                     loading: () => const SizedBox.shrink(),

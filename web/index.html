@@ -15,7 +15,7 @@
     content="Bridging high-performance Flutter architecture with low-level embedded C++. Explore custom PCB designs, IoT systems, and cross-platform codebases by IamJaxon.">
   <meta name="keywords"
     content="Flutter, Dart, C++, Embedded Systems, KiCad, PCB Design, Riverpod, Clean Architecture, IoT, Electrical Engineering">
-  <meta name="author" content="Jackson (IamJaxon)">
+  <meta name="author" content="Jackson">
 
   <!-- Open Graph / LinkedIn / WhatsApp Social Previews -->
   <meta property="og:type" content="website">
@@ -61,8 +61,14 @@
       color: #555555;
       font-size: 14px;
       letter-spacing: 2px;
-      margin-bottom: 24px;
+      margin-bottom: 8px;
+      /* Tighter margin for stacked text */
       text-align: center;
+    }
+
+    .boot-text.last-line {
+      margin-bottom: 24px;
+      /* Larger gap before the trace loader */
     }
 
     .cursor {
@@ -120,6 +126,9 @@
   <!-- THE LOADING UI -->
   <div id="loading-indicator">
     <div class="boot-text">
+      Booting.......................
+    </div>
+    <div class="boot-text last-line">
       > Over-engineering a simple Firestore read... (I swear it worked on localhost)<span class="cursor">_</span>
     </div>
     <div class="trace-container">
